@@ -7,7 +7,7 @@ import six
 unicode = six.text_type # pylint: disable=redefined-builtin
 
 class PythonCodeWidget(forms.Textarea):
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         """
         TODO: have a syntax hilight feature, where instead of a TextArea,
         you get a div that can be double-clicked in to make it editable,
@@ -17,7 +17,7 @@ class PythonCodeWidget(forms.Textarea):
             value = ""
         if attrs is None:
             attrs = {}
-        if attrs.has_key('class'):
+        if 'class' in attrs:
             attrs['class'] += " python-code"
         else:
             attrs['class'] = "python-code"
@@ -25,7 +25,6 @@ class PythonCodeWidget(forms.Textarea):
     
     class Media:
         js = (
-            "admin/js/jquery.min.js",
             "python_field/js/codemirror.js",
             "python_field/js/python_field.js",
         )
