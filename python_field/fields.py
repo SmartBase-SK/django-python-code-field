@@ -25,6 +25,7 @@ class PythonCodeWidget(forms.Textarea):
     
     class Media:
         js = (
+            "admin/js/jquery.init.js",
             "python_field/js/codemirror.js",
             "python_field/js/python_field.js",
         )
