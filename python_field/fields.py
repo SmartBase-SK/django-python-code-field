@@ -73,7 +73,7 @@ class PythonCodeField(models.TextField):
     def formfield(self, **kwargs):
         return super(PythonCodeField, self).formfield(form_class=PythonCodeFormField, **kwargs)
         
-    def from_db_value(self, value, expression, connection, context):
+    def from_db_value(self, value, expression, connection):
         return value
 
     def to_python(self, value):
